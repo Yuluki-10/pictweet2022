@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pictweet</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    		<header class="header"> 
+      <div class="header__bar row"> 
+        <h1 class="grid-6"><a href="/">PicTweet</a></h1> 
+        <div class="user_nav grid-6"> 
+          <a class="post" href="/tweets/new">投稿する</a> 
+        </div> 
+      </div> 
+    </header> 
+
+		<%= yield %> 
+ 
+
+		<footer> 
+      <p> 
+        Copyright PicTweet 2014. 
+      </p> 
+    </footer> 
+ 
+
+ 
+
+		<script type="text/javascript"> 
+      WebFontConfig = { 
+        google: { families: [ 'Unica+One::latin' ] } 
+      }; 
+      (function() { 
+        var wf = document.createElement('script'); 
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + 
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'; 
+        wf.type = 'text/javascript'; 
+        wf.async = 'true'; 
+        var s = document.getElementsByTagName('script')[0]; 
+        s.parentNode.insertBefore(wf, s); 
+      })(); 
+    </script>
+
+  </body>
+</html>

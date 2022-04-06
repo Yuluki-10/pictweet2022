@@ -1,0 +1,27 @@
+default: &default
+  adapter: mysql2
+	# 絵文字対応にするため、encoding, charset, collationを以下に設定 
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_unicode_ci
+  pool: 5
+  username: root
+  password: 'halamadridynadamas'
+  host: localhost
+  socket: /tmp/mysql.sock
+development:
+  <<: *default
+  database: pictweet_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: pictweet_test
+
+production:
+  <<: *default
+  database: pictweet_production
+  username: pictweet
+  password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
