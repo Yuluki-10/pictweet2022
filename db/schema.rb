@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_04_02_003905) do
 
-  create_table "tweets", force: :cascade do |t|
+  create_table "tweets", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.text "text"
     t.text "image"
