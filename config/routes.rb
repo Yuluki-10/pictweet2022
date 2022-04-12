@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'tweets#index'
   resources :tweets do
     resources :comments, only: [:create]
+    resource :likes, only: [:create, :destroy]
   end
   resources :users, only: [:show]
   # get 'tweets' => 'tweets#index'
