@@ -20,6 +20,9 @@
       </a>
     </span>
   </div>
+  <div id="like_btn_<%= @tweet.id %>">
+    <%= render partial: "likes/like", locals: { tweet: @tweet } %>
+  </div>
   <div class="container">
     <!-- ここからコメントフォーム -->
     <% if current_user %>
