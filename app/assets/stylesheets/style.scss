@@ -404,3 +404,24 @@ footer {
         text-align: center;
     }
 }
+
+// エラー用スタイル
+#error_explanation {
+  h2{
+    font-size: x-large;
+  }
+  ul{
+    li{
+      color: red;
+    }
+  }
+}
+.alert{
+  font-weight: bold;
+  color: red;
+  // padding-bottom: 15px;
+}
+.notice{
+  font-weight: bold;
+  color: #57C3E9;
+}
