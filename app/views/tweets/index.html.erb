@@ -4,6 +4,9 @@
     <div id="like_btn_<%= tweet.id %>">
       <%= render partial: "likes/like", locals: { tweet: tweet } %>
     </div>
+    <div>
+      カテゴリー▶︎ <%= raw(tweet.categories.map{ |cat| raw(link_to(cat.category_name, category_tweets_path(cat))) }.join(', ')) %>
+    </div>
   <% end %>
   <%= paginate(@tweets) %>
 </div>

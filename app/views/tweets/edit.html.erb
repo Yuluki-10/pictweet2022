@@ -1,8 +1,18 @@
 <div class="contents row"> 
-  <%= form_tag("/tweets/#{@tweet.id}", method: :patch ) do %> 
+  <%= form_with url: "/tweets/#{@tweet.id}", method: :patch do |f|%> 
     <h3> 
       編集する 
-    </h3> 
+    </h3>
+    <p>
+      <%= f.label :category, 'カテゴリ：チェックを付けるか、テキストボックスに入力', class: "description" %>
+      <%= f.collection_check_boxes(:category_ids, Category.all, :id, :category_name, {checked: @tweet.categories.map(&:to_param)}) do |category| %> 
+        <%= category.label do %>
+          <%= category.check_box %>
+          <%= category.text %>
+        <% end %>
+      <% end %>
+    </p>
+    <input type="text" name="category_names" placeholder="カテゴリー入力：タグを追加するには半角の' , 'で区切ってください">
     <input type="text" name="image" value="<%= @tweet.image %>" placeholder="Image Url" autofocus="true"> 
     <textarea name="text" placeholder="text" rows="10" cols="30"><%= @tweet.text %></textarea> 
     <input type="submit" value="SEND"> 

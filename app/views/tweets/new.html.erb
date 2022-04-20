@@ -1,11 +1,21 @@
-<div class="contents row">
+<div class="contents row"> 
   <div class="container">
-    <%= form_tag('/tweets', method: :post) do %>
-      <h3>
-        投稿する
+    <%= form_with url: '/tweets' do |f|%>
+      <h3> 
+        form_withで投稿する 
       </h3>
+      <p>
+        <%= f.label :category,'カテゴリ：チェックを付けるか、テキストボックスに入力', class: "description" %>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :category_name) do |category| %> 
+          <%= category.label do %>
+            <%= category.check_box %>
+            <%= category.text %>
+          <% end %>
+        <% end %>
+      </p>
+      <input type="text" name="category_names" placeholder="カテゴリ：タグを付けるには半角の' , 'で区切ってください">
       <input type="text" name="image" placeholder="Image Url">
-      <textarea name="text" placeholder="text" rows="10" cols="30"></textarea>
+      <textarea name="text" placeholder="text" rows="10" cols="30"></textarea> 
       <input type="submit" value="SENT">
     <% end %>
   </div>

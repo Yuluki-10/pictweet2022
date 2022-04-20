@@ -13,30 +13,33 @@
   <body>
   <header class="header"> 
     <div class="header__bar row"> 
-      <h1 class="grid-6"><a href="/">PicTweet</a></h1> 
-      <% if user_signed_in? %> 
-        <div class="user_nav grid-6"> 
-          <span><%= current_user.nickname %> 
-            <ul class="user__info"> 
-              <li> 
-                <a href="/users/<%= current_user.id %>">マイページ</a> 
+      <h1 class="grid-6"><a href="/">PicTweet</a></h1>
+      <% if user_signed_in? %>
+        <div class="user_nav grid-6">
+          <span><%= current_user.nickname %>
+            <ul class="user_info">
+              <li>
+                <%# 自分はlink_to使ってみた %>
+                <%= link_to "マイページ", "/users/#{current_user.id}" %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
-              </li> 
-            </ul> 
-          </span> 
+              </li>
+            </ul>
+          </span>
           <a class="post" href="/tweets/new">投稿する</a> 
+          <a href="/categories">カテゴリー</a>
         </div> 
       <% else %> 
         <div class="grid-6"> 
           <%= link_to "ログイン", new_user_session_path, class: 'post' %> 
           <%= link_to "新規登録", new_user_registration_path, class: 'post' %> 
-        </div> 
+          <a href="/categories">カテゴリー</a>
+        </div>
       <% end %> 
     </div> 
-  </header> 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %> 
+  </header>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
  
 
     <footer> 
@@ -61,7 +64,6 @@
         var s = document.getElementsByTagName('script')[0]; 
         s.parentNode.insertBefore(wf, s); 
       })(); 
-    </script>
-
+    </script> 
   </body>
 </html>
