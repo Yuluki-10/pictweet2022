@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+  <h2>カテゴリの追加</h2>
+  <%= form_with model: @category, local: true do |f| %>
+    <div class='from_input'>
+      <%= f.label :category_name %>
+      <%= f.text_field :category_name %>
+    </div>
+    <div class="form_action">
+      <%= f.submit "登録する", name: nil %>
+    </div>
+  <% end %>
+<% end %>
+<h1>カテゴリ一覧</h1>
+<table class="table table-hover">
+  <tbody>
+    <% @categories.each do |cate| %>
+      <tr>
+        <td><%= link_to cate.category_name, category_tweets_path(category_id: cate.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
