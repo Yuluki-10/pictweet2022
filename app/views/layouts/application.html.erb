@@ -26,13 +26,13 @@
             </ul>
           </span>
           <a class="post" href="/tweets/new">投稿する</a> 
-          <a href="/categories">カテゴリー</a>
+          <a href="/categories" class="post">カテゴリー</a>
         </div> 
       <% else %> 
         <div class="grid-6"> 
           <%= link_to "ログイン", new_user_session_path, class: 'post' %> 
           <%= link_to "新規登録", new_user_registration_path, class: 'post' %> 
-          <a href="/categories">カテゴリー</a>
+          <a href="/categories" class="post">カテゴリー</a>
         </div>
       <% end %> 
     </div> 

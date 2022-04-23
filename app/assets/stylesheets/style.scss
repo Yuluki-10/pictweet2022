@@ -129,6 +129,9 @@ div.header__bar.row {
     font-size: 20px;
     line-height: 41px;
     float: left;
+    @media screen and(max-width:660px) {
+      font-size: 16px;
+    }
     a {
       display: block;
     }
@@ -141,6 +144,12 @@ div.header__bar.row {
       width: 120px;
       display: inline-left;
       margin-left: 10px;
+      @media screen and(max-width:660px) {
+        font-size: x-small;
+        width: 70px;
+        padding: 5px 0;
+        margin-left: 4px;
+      }
     }
   }
 }
