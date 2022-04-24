@@ -130,7 +130,8 @@ div.header__bar.row {
     line-height: 41px;
     float: left;
     @media screen and(max-width:660px) {
-      font-size: 16px;
+      font-size: 14px;
+      line-height: 2;
     }
     a {
       display: block;
@@ -155,19 +156,23 @@ div.header__bar.row {
 }
 .user_nav {
   position: relative;
-  height: 100px;
   position: absolute;
   right: 0;
   span {
     top: 5px;
     display: block;
     float: left;
-    margin-left: 30px;
     width: 150px;
     height: 50px;
     font-size: 1em;
     cursor: pointer;
     position: relative;
+    @media screen and (max-width:660px) {
+      width: auto;
+      height: auto;
+      font-size: x-small;
+      line-height: 2;
+    }
     &:after {
       content: '▼';
       font-size: .7em;
@@ -177,7 +182,7 @@ div.header__bar.row {
       color: $accent;
       display: block;
       margin: 0;
-      width: inherit;
+      width: max-content;
       list-style: none;
       padding: 0;
     }
@@ -185,7 +190,7 @@ div.header__bar.row {
   ul {
     display: none;
     position: absolute;
-    top: 46px;
+    top: 30px;
     right: 0;
     border-left: 1px solid #d8d8d8;
     border-right: 1px solid #d8d8d8;
